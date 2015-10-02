@@ -16,7 +16,7 @@ var app = express();
 
 // read configuration and routes
 require("./config/express")(app);
-require("./website/routes")(app);
+require("./websites/routes")(app);
 
 
 

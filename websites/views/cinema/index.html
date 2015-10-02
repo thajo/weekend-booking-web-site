@@ -1,0 +1,82 @@
+<h1>Välkommen till Grönköpings biograf</h1>
+
+
+<div>
+    2. Välj dag
+    <form action="cinema/day">
+        <select name="day" id="day">
+            <option default>--- Välj dag ---</option>
+            <option value="01">Fredag</option>
+            <option value="02">Lördag</option>
+            <option value="03">Söndag</option>
+        </select>
+    </form>
+</div>
+
+<div id="movies" style="display: none;">
+    2. Välj film
+    <form method="GET" action="cinema/movie">
+        <select name="movie" id="movie">
+            <option default>--- Välj film ---</option>
+            <option value="01">Göta Kanal</option>
+            <option value="02">Zingo</option>
+            <option value="03">Fabian Bom</option>
+            <option value="04">Sällskapsresan</option>
+            <option value="05">Repmånad</option>
+            <option value="06">Passionat paradis</option>
+        </select>
+    </form>
+    <button style="display: none;" id="check">Kontrolla tillgänglighet</button>
+</div>
+
+<div id="message">
+
+</div>
+
+<script>
+
+(function() {
+    var selectedDay;
+    var selectedMovie;
+    window.onload = function () {
+        var daySelect = document.getElementById("day");
+
+        daySelect.onchange = function (e) {
+            selectedDay = this.options[this.selectedIndex].value;
+            showMovies();
+        };
+
+        var movieSelected = document.getElementById("movie");
+        movieSelected.onchange = function (e) {
+            selectedMovie = this.options[this.selectedIndex].value;
+
+            showButton();
+
+        };
+    };
+
+    function showMovies() {
+        var mEl = document.getElementById("movies");
+        mEl.style.display = "block";
+    }
+
+
+    function showButton() {
+        var mEl = document.getElementById("check");
+        mEl.style.display = "block";
+        mEl.onclick = function () {
+
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (this.readyState === 4) {
+                   document.getElementById("message").innerHTML = this.responseText;
+                }
+
+            };
+            xhr.open("GET", "/cinema/check?day=" + selectedDay + "&movie=" + selectedMovie);
+            xhr.send();
+        }
+    }
+})();
+
+</script>

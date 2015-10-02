@@ -10,14 +10,26 @@ var compression = require("compression");
 var path = require("path");
 var config = require("./environment");
 var exphbs = require("express-handlebars");
+var debug = require("debug")("express");
 
 
 
 module.exports = function(app) {
     var env = app.get("env");
 
+    debug(__dirname + "/../websites/views");
+    // Setting the view root - not recommended structure
+    app.set("views", __dirname + "/../websites/views");
+
+
     // Configure the handlebar
-    app.engine(".html", exphbs({defaultLayout: "home", extname: ".html"}));
+    app.engine(".html", exphbs(
+        {
+            defaultLayout: "index",
+            extname: ".html",
+            layoutsDir:  __dirname + "/../websites/views/layouts",
+            partialsDir: __dirname + "/../websites/views/partials"
+        }));
     app.set("view engine", ".html");
 
     app.use(compression());
