@@ -11,7 +11,8 @@ var path = require("path");
 var config = require("./environment");
 var exphbs = require("express-handlebars");
 var debug = require("debug")("express");
-
+var session = require('express-session');
+var FileStore = require('session-file-store')(session);
 
 
 module.exports = function(app) {
@@ -35,6 +36,20 @@ module.exports = function(app) {
     app.use(compression());
     app.use(bodyParser.urlencoded({ extended: false }));
     app.use(bodyParser.json());
+
+    // config the session
+    app.use(session({
+        store: new FileStore(),
+        secret: 'this is secret don´t tell anyone!',
+        cookie: {
+            httpOnly: true,
+            secure: false,
+
+        },
+        resave: false,
+        saveUninitialized: true
+    }));
+
 
 
     if (env === "production") {

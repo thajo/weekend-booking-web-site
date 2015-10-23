@@ -1,41 +1,65 @@
 <h1>Välkommen till Grönköpings biograf</h1>
 
+<img src="/cinema/static/bio.jpg" alt=""/>
 
-<div>
-    2. Välj dag
-    <form action="cinema/day">
-        <select name="day" id="day">
-            <option default>--- Välj dag ---</option>
-            <option value="01">Fredag</option>
-            <option value="02">Lördag</option>
-            <option value="03">Söndag</option>
-        </select>
+<p>Vi erbjuder <strong>alltid tre olika pilsnerfilmer</strong>, varje fredag, lördag och söndag</p>
+Ingen av filmerna är längre än två timmar
+
+
+
+<div class="center">
+<div class="row">
+
+    <form class="col s6 center" action="cinema/day">
+
+        <div class="input-field col s6 center">
+            <select name="day" id="day">
+                <option value="" disabled selected>--- Välj dag ---</option>
+                <option value="01">Fredag</option>
+                <option value="02">Lördag</option>
+                <option value="03">Söndag</option>
+            </select>
+
+        </div>
+
     </form>
+
+
 </div>
 
-<div id="movies" style="display: none;">
-    2. Välj film
-    <form method="GET" action="cinema/movie">
-        <select name="movie" id="movie">
-            <option default>--- Välj film ---</option>
-            <option value="01">Göta Kanal</option>
-            <option value="02">Zingo</option>
-            <option value="03">Fabian Bom</option>
-            <option value="04">Sällskapsresan</option>
-            <option value="05">Repmånad</option>
-            <option value="06">Passionat paradis</option>
-        </select>
-    </form>
-    <button style="display: none;" id="check">Kontrolla tillgänglighet</button>
+<div class="row" id="movies" style="display: none;">
+
+    <div class="input-field col s6">  
+        <form class="col s6" method="GET" action="cinema/movie"> 
+            <select name="movie" id="movie"> 
+                <option disabled selected>--- Välj film ---</option> 
+                <option value="01">Söderkåkar</option> 
+                <option value="02">Fabian Bom</option> 
+                <option value="03">Pensionat Paradiset</option> 
+            </select>    
+        </form>
+    </div>
+
 </div>
+
+
+
+<button style="display: none;" id="check">Kontrolla tillgänglighet</button>
 
 <div id="message">
 
 </div>
+</div>
+
 
 <script>
 
 (function() {
+
+    $(document).ready(function() {
+        $('select').material_select();
+    });
+
     var selectedDay;
     var selectedMovie;
     window.onload = function () {
@@ -69,7 +93,21 @@
             var xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function () {
                 if (this.readyState === 4) {
-                   document.getElementById("message").innerHTML = this.responseText;
+
+                    var json = JSON.parse(this.responseText);
+
+                    if(json.length === 0) {
+                        message.innerHTML = "Filmen går ej denna dag";
+                    } else {
+                        message.innerHTML = "";
+                        json.forEach(function(current) {
+                            var time = current.time;
+                            var status = current.status === 0 ? "Fullbokad" : "Platser kvar" ;
+                            message.innerHTML += current.time + " : " +status +"<br />";
+                        });
+                    }
+
+
                 }
 
             };

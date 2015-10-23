@@ -15,34 +15,59 @@ router.get("/", function(req, res) {
 router.get("/check", function(req, res) {
 
     debug("Day: %s, Movie: %s", req.query.day, req.query.movie);
-
-    res.send(checkAvability(req.query.day, req.query.movie) === 0 ? "Platser kvar" : "Fullbokat");
+    res.send(checkAvability(req.query.day, req.query.movie));
+  //  res.sendStatus(200);
 });
 
 module.exports = router;
 
 var data = [
-    {day: "01", movie: "01", status: 0},
-    {day: "01", movie: "02", status: 1},
-    {day: "01", movie: "03", status: 0},
-    {day: "01", movie: "04", status: 1},
-    {day: "01", movie: "05", status: 1},
-    {day: "01", movie: "06", status: 0},
-    {day: "02", movie: "01", status: 1},
-    {day: "02", movie: "02", status: 0},
-    {day: "02", movie: "03", status: 1},
-    {day: "02", movie: "04", status: 1},
-    {day: "02", movie: "05", status: 1},
-    {day: "02", movie: "06", status: 0},
-    {day: "03", movie: "01", status: 0},
-    {day: "03", movie: "03", status: 1},
-    {day: "03", movie: "04", status: 1},
-    {day: "03", movie: "05", status: 1},
+    {day: "01", movie: "01", status: 0, time: "17:00"},
+    {day: "01", movie: "01", status: 1, time: "20:00"},
+    {day: "01", movie: "01", status: 0, time: "23:00"},
+
+    {day: "01", movie: "02", status: 1, time: "17:00"},
+    {day: "01", movie: "02", status: 1, time: "20:00"},
+    {day: "01", movie: "02", status: 0, time: "23:00"},
+
+    {day: "01", movie: "03", status: 1, time: "17:00"},
+    {day: "01", movie: "03", status: 0, time: "20:00"},
+    {day: "01", movie: "03", status: 0, time: "23:00"},
+
+
+    {day: "02", movie: "01", status: 1, time: "17:00"},
+    {day: "02", movie: "01", status: 1, time: "20:00"},
+    {day: "02", movie: "01", status: 1, time: "23:00"},
+
+    {day: "02", movie: "02", status: 1, time: "17:00"},
+    {day: "02", movie: "02", status: 1, time: "20:00"},
+    {day: "02", movie: "02", status: 0, time: "23:00"},
+
+    {day: "02", movie: "03", status: 1, time: "17:00"},
+    {day: "02", movie: "03", status: 0, time: "20:00"},
+    {day: "02", movie: "03", status: 0, time: "23:00"},
+
+
+    {day: "03", movie: "01", status: 1, time: "17:00"},
+    {day: "03", movie: "01", status: 1, time: "20:00"},
+    {day: "03", movie: "01", status: 0, time: "23:00"},
+
+    {day: "03", movie: "02", status: 1, time: "17:00"},
+    {day: "03", movie: "02", status: 1, time: "20:00"},
+    {day: "03", movie: "02", status: 0, time: "23:00"},
+
+    {day: "03", movie: "03", status: 1, time: "17:00"},
+    {day: "03", movie: "03", status: 0, time: "20:00"},
+    {day: "03", movie: "03", status: 0, time: "23:00"}
 ];
 
 function checkAvability(day, movie) {
-    var fArr = data.filter(function(current) {
+    var arr = [];
+    data.filter(function(current) {
        return current.day === day && current.movie === movie;
+    }).forEach(function(current) {
+        var obj = {status: current.status, time: current.time, movie: current.movie};
+        arr.push(obj);
     });
-    return fArr[0].status;
+    return JSON.stringify(arr);
 }
