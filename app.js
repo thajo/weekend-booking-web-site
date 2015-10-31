@@ -22,7 +22,7 @@ require("./websites/routes")(app);
 server = app.listen(config.port, function() {
     var host = server.address().address;
     var port = server.address().port;
-    debug("Example app listening at http://%s:%s, ENV: %s", host, port, app.get("env"));
+    console.log("Example app listening at http://%s:%s, ENV: %s", host, port, app.get("env"));
 });
 
 // Expose app
