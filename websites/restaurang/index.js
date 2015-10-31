@@ -23,12 +23,13 @@ router.post("/", function(req, res) {
     if (username !== "zeke" || password !== "coys") {
         return res.sendStatus(403);
     }
-    if(time === undefined || time.length === 0) {
+
+    if (time === undefined || time.length === 0) {
         res.write("{'error': 'bad arguments'}");
         return res.sendStatus(400);
     }
-    req.session.userid = username;
 
+    req.session.userid = username;
     res.redirect("/dinner/login/book");
 });
 

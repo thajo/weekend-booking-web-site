@@ -64,10 +64,11 @@ var data = [
 function checkAvability(day, movie) {
     var arr = [];
     data.filter(function(current) {
-       return current.day === day && current.movie === movie;
+        return current.day === day && current.movie === movie;
     }).forEach(function(current) {
         var obj = {status: current.status, time: current.time, movie: current.movie};
         arr.push(obj);
     });
+
     return JSON.stringify(arr);
 }
