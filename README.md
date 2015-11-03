@@ -8,7 +8,7 @@ Make sure you have the following installed on your system:
 
 Now, do:
 
-1. Pull (`git clone https://github.com:thajo/weekend-booking-web-site.git`) into your directory. 
+1. Pull (`git clone https://github.com/thajo/weekend-booking-web-site.git`) into your directory. 
 
 2. Start the virtual machine using `vagrant up` (May take 5 - 10 minutes this first time. Ignore red command line statements and warnings.)
 
