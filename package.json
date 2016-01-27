@@ -23,15 +23,14 @@
   },
   "homepage": "https://github.com/thajo/weekend-booking-web-site#readme",
   "dependencies": {
-    "body-parser": "^1.14.1",
-    "compression": "^1.6.0",
-    "debug": "^2.2.0",
-    "express": "^4.13.3",
-    "express-handlebars": "^2.0.1",
-    "express-session": "^1.11.3",
-    "jscs": "^2.4.0",
-    "lodash": "^3.10.1",
-    "morgan": "^1.6.1",
-    "session-file-store": "0.0.20"
+    "body-parser": "^1.14.2",
+    "express": "^4.13.4",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.13.0",
+    "lodash": "^4.0.1",
+    "morgan": "^1.6.1"
+  },
+  "devDependencies": {
+    "debug": "^2.2.0"
   }
 }

@@ -6,13 +6,13 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var morgan = require("morgan");             // log requests to the console (express4)
-var compression = require("compression");
+
 var path = require("path");
 var config = require("./environment");
 var exphbs = require("express-handlebars");
 var debug = require("debug")("express");
-var session = require('express-session');
-var FileStore = require('session-file-store')(session);
+var session = require("express-session");
+
 
 
 module.exports = function(app) {
@@ -33,13 +33,12 @@ module.exports = function(app) {
         }));
     app.set("view engine", ".html");
 
-    app.use(compression());
     app.use(bodyParser.urlencoded({ extended: false }));
     app.use(bodyParser.json());
 
     // config the session
     app.use(session({
-        store: new FileStore(),
+        name: "node_session_cookie",
         secret: 'this is secret don´t tell anyone!',
         cookie: {
             httpOnly: true,
