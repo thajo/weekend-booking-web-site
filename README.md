@@ -31,4 +31,3 @@ Now, do:
 
 5. When you are done simply `ctrl+c` in the vagrant-terminal to stop the server, `exit` to  exit the ssh-session and do a `vagrant halt` to stop the machine or `vagrant suspend` to only suspend it.
 
-6. Don´t forget to do lots of commits and push your code to the repo shared with the user "1DV449"
