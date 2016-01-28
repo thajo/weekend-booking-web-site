@@ -8,7 +8,7 @@ Make sure you have the following installed on your system:
 
 Now, do:
 
-1. Pull (`git clone https://github.com:thajo/weekend-booking-web-site.git`) into your directory. 
+1. Pull (`git clone https://github.com:thajo/weekend-booking-web-site.git`) into your directory.
 
 2. Start the virtual machine using `vagrant up` (May take 5 - 10 minutes this first time. Ignore red command line statements and warnings.)
 
@@ -16,7 +16,11 @@ Now, do:
 
 4. Change directory to `cd /vagrant`
 
+<<<<<<< HEAD
 5. Install depencies for the node application `npm install` or maybe `npm install --no-bin-links` if you are on Windows 
+=======
+5. Install dependencies for the node application `npm install` 
+>>>>>>> change for release
 
 6. start the application running `node app` and the browse to http://localhost:8080 with your browser to see the site
 
@@ -30,4 +34,3 @@ Now, do:
 4. Let your web agent consume that base-url and start writing your code.
 
 5. When you are done simply `ctrl+c` in the vagrant-terminal to stop the server, `exit` to  exit the ssh-session and do a `vagrant halt` to stop the machine or `vagrant suspend` to only suspend it.
-

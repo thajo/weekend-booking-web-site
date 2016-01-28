@@ -66,7 +66,7 @@ function checkAvability(day, movie) {
     data.filter(function(current) {
         return current.day === day && current.movie === movie;
     }).forEach(function(current) {
-        var obj = {status: current.status, time: current.time, movie: current.movie};
+        var obj = {status: current.status, day: current.day, time: current.time, movie: current.movie};
         arr.push(obj);
     });
 
