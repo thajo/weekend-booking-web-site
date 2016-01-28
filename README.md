@@ -16,9 +16,9 @@ Now, do:
 
 4. Change directory to `cd /vagrant`
 
-5. Install depencies for the node application `npm install` 
+5. Install depencies for the node application `npm install` or maybe `npm install --no-bin-links` if you are on Windows 
 
-6. start the application running `node app`
+6. start the application running `node app` and the browse to http://localhost:8080 with your browser to see the site
 
 ## Daily workflow
 1. Start out by `vagrant up` your machine and ssh into it (`vagrant ssh`). Change directory to `cd /vagrant`.
