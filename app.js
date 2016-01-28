@@ -3,7 +3,6 @@
 /**
  * Main application file
  */
-
 var server;
 var debug = require("debug")("start");
 var express = require("express");
