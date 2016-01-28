@@ -16,11 +16,7 @@ Now, do:
 
 4. Change directory to `cd /vagrant`
 
-<<<<<<< HEAD
 5. Install depencies for the node application `npm install` or maybe `npm install --no-bin-links` if you are on Windows 
-=======
-5. Install dependencies for the node application `npm install` 
->>>>>>> change for release
 
 6. start the application running `node app` and the browse to http://localhost:8080 with your browser to see the site
 
