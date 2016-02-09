@@ -1,5 +1,5 @@
 # weekend-booking-web-site
-This is not a real web site its just for an assignment where students writes a web agent scraping three diffrent sites
+This is not a real web site, it's just for an assignment where students write a web agent scraping three different sites
 
 ## Install
 Make sure you have the following installed on your system:
@@ -18,12 +18,12 @@ Now, do:
 
 5. Install depencies for the node application `npm install` or maybe `npm install --no-bin-links` if you are on Windows 
 
-6. start the application running `node app` and the browse to http://localhost:8080 with your browser to see the site
+6. Start the application by running `node app` and browse to http://localhost:8080 with your browser to see the site
 
 ## Daily workflow
 1. Start out by `vagrant up` your machine and ssh into it (`vagrant ssh`). Change directory to `cd /vagrant`.
 
-2. start the application running `node app`
+2. Start the application running `node app`
 
 3. Open up a browser on your local machine and visit the url `http://localhost:8080`
 
