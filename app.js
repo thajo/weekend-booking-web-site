@@ -13,6 +13,23 @@ debug("Enviroment mode is: ", process.env.NODE_ENV);
 var config = require("./config/environment");
 var app = express();
 
+var session = require("express-session");
+var cookieParser = require("cookie-parser");
+
+app.use(cookieParser());
+
+app.use(session({
+    name:   "qi88ZyOC0BVAZDoD6yKSpSessionId",  // Don't use default session cookie name.
+    secret: "K7smsx9MsE8MyCb1dwEzVp5EeCep5s",
+    saveUninitialized: true,
+    resave: true,
+    cookie: {
+        secure: false,
+        httpOnly: true,
+        maxAge: 1000 * 60 * 60 * 24 // 1 day
+    }
+}));
+
 // read configuration and routes
 require("./config/express")(app);
 require("./websites/routes")(app);

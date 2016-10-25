@@ -12,7 +12,7 @@ var all = {
     root: path.normalize(__dirname + "/../.."),
 
     // Server port
-    port: process.env.PORT || 3000,
+    port: process.env.PORT || 8080,
 
 };
 

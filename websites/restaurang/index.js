@@ -7,7 +7,9 @@
 var express = require("express");
 var router = express.Router();
 
+
 var debug = require("debug")("restaurang");
+
 
 
 
@@ -29,15 +31,18 @@ router.post("/", function(req, res) {
     }
 
     // set cookie
-    req.session.loggedIn = true;
+    req.session.regenerate(function() {
+        // Store the email address in the session store.
+        req.session.loggedIn = true;
+        res.redirect("login/booking");
+    });
 
-    res.redirect("login/booking");
+
+
 
 });
 
 router.get("/booking", function(req, res) {
-  debug("Should check session");
-  debug(req.session);
   if(!req.session.loggedIn) {
     return res.sendStatus(401);
   }
@@ -45,15 +50,10 @@ router.get("/booking", function(req, res) {
 });
 
 router.post("/booking", function(req, res) {
-  debug("Should check csrf and session");
-  debug(req.session);
   if(!req.session.loggedIn) {
     return res.sendStatus(401);
   }
-  debug(req.body.csrf_token);
-  if(req.body.csrf_token !== "Jishgeny6753ydiayYHSjay0918") {
-    return res.status(400).send("Must provied the value of the csrf_token");
-  }
+  req.session.destroy();
   res.render("restaurang/thanks");
 });
 

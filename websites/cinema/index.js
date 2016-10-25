@@ -22,43 +22,43 @@ router.get("/check", function(req, res) {
 module.exports = router;
 
 var data = [
-    {day: "01", movie: "01", status: 0, time: "16:00"},
-    {day: "01", movie: "01", status: 1, time: "18:00"},
-    {day: "01", movie: "01", status: 0, time: "21:00"},
+    {day: "05", movie: "01", status: 0, time: "16:00"},
+    {day: "05", movie: "01", status: 1, time: "18:00"},
+    {day: "05", movie: "01", status: 0, time: "21:00"},
 
-    {day: "01", movie: "02", status: 1, time: "16:00"},
-    {day: "01", movie: "02", status: 1, time: "18:00"},
-    {day: "01", movie: "02", status: 0, time: "21:00"},
+    {day: "05", movie: "02", status: 1, time: "16:00"},
+    {day: "05", movie: "02", status: 1, time: "18:00"},
+    {day: "05", movie: "02", status: 0, time: "21:00"},
 
-    {day: "01", movie: "03", status: 1, time: "16:00"},
-    {day: "01", movie: "03", status: 0, time: "18:00"},
-    {day: "01", movie: "03", status: 0, time: "21:00"},
-
-
-    {day: "02", movie: "01", status: 1, time: "16:00"},
-    {day: "02", movie: "01", status: 1, time: "18:00"},
-    {day: "02", movie: "01", status: 1, time: "21:00"},
-
-    {day: "02", movie: "02", status: 1, time: "16:00"},
-    {day: "02", movie: "02", status: 1, time: "18:00"},
-    {day: "02", movie: "02", status: 0, time: "21:00"},
-
-    {day: "02", movie: "03", status: 1, time: "16:00"},
-    {day: "02", movie: "03", status: 0, time: "18:00"},
-    {day: "02", movie: "03", status: 0, time: "21:00"},
+    {day: "05", movie: "03", status: 1, time: "16:00"},
+    {day: "05", movie: "03", status: 0, time: "18:00"},
+    {day: "05", movie: "03", status: 0, time: "21:00"},
 
 
-    {day: "03", movie: "01", status: 1, time: "16:00"},
-    {day: "03", movie: "01", status: 1, time: "18:00"},
-    {day: "03", movie: "01", status: 0, time: "21:00"},
+    {day: "06", movie: "01", status: 1, time: "16:00"},
+    {day: "06", movie: "01", status: 1, time: "18:00"},
+    {day: "06", movie: "01", status: 1, time: "21:00"},
 
-    {day: "03", movie: "02", status: 1, time: "16:00"},
-    {day: "03", movie: "02", status: 1, time: "18:00"},
-    {day: "03", movie: "02", status: 0, time: "21:00"},
+    {day: "06", movie: "02", status: 1, time: "16:00"},
+    {day: "06", movie: "02", status: 1, time: "18:00"},
+    {day: "06", movie: "02", status: 0, time: "21:00"},
 
-    {day: "03", movie: "03", status: 1, time: "16:00"},
-    {day: "03", movie: "03", status: 0, time: "18:00"},
-    {day: "03", movie: "03", status: 0, time: "21:00"}
+    {day: "06", movie: "03", status: 1, time: "16:00"},
+    {day: "06", movie: "03", status: 0, time: "18:00"},
+    {day: "06", movie: "03", status: 0, time: "21:00"},
+
+
+    {day: "07", movie: "01", status: 1, time: "16:00"},
+    {day: "07", movie: "01", status: 1, time: "18:00"},
+    {day: "07", movie: "01", status: 0, time: "21:00"},
+
+    {day: "07", movie: "02", status: 1, time: "16:00"},
+    {day: "07", movie: "02", status: 1, time: "18:00"},
+    {day: "07", movie: "02", status: 0, time: "21:00"},
+
+    {day: "07", movie: "03", status: 1, time: "16:00"},
+    {day: "07", movie: "03", status: 0, time: "18:00"},
+    {day: "07", movie: "03", status: 0, time: "21:00"}
 ];
 
 function checkAvability(day, movie) {

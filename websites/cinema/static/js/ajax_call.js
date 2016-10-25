@@ -41,12 +41,12 @@
                     var json = JSON.parse(this.responseText);
 
                     if(json.length === 0) {
-                        message.innerHTML = "Filmen går ej denna dag";
+                        message.innerHTML = "This movie is not available this day";
                     } else {
                         message.innerHTML = "";
                         json.forEach(function(current) {
                             var time = current.time;
-                            var status = current.status === 0 ? "Fullbokad" : "Platser kvar" ;
+                            var status = current.status === 0 ? "Fully booked" : "Sites available" ;
                             message.innerHTML += current.time + " : " +status +"<br />";
                         });
                     }
